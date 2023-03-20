@@ -17,3 +17,11 @@ resource "aws_subnet" "lms--subnet" {
     Name = "lms-subnet"
   }
 }
+
+# internet gateway - attach to vpc
+resource "aws_internet_gateway" "lms-igw" {
+  vpc_id = aws_vpc.lms--vpc.id
+  tags = {
+    Name = "lms-igw"
+  }
+}
