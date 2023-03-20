@@ -25,3 +25,14 @@ resource "aws_internet_gateway" "lms-igw" {
     Name = "lms-igw"
   }
 }
+
+# route table
+resource "aws_route_table" "lms-rt" {
+  vpc_id = aws_vpc.lms--vpc.id
+
+  route = []
+
+  tags = {
+    Name = "lms-rt"
+  }
+}
