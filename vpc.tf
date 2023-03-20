@@ -29,7 +29,7 @@ resource "aws_internet_gateway" "lms-igw" {
 # route table
 resource "aws_route_table" "lms-rtb" {
   vpc_id = aws_vpc.lms--vpc.id
-  route = []
+  route  = []
   tags = {
     Name = "lms-rtb"
   }
@@ -37,9 +37,9 @@ resource "aws_route_table" "lms-rtb" {
 
 # route for igw
 resource "aws_route" "lms-rt" {
-  route_table_id              = aws_route_table.lms-rtb.id
-  destination_cidr_block    = "0.0.0.0/0"
-  gateway_id      = aws_internet_gateway.lms-igw.id
+  route_table_id         = aws_route_table.lms-rtb.id
+  destination_cidr_block = "0.0.0.0/0"
+  gateway_id             = aws_internet_gateway.lms-igw.id
 }
 
 # route table-subnet association
